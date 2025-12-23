@@ -11,7 +11,7 @@
         <li> 
         <!-- <a href="/display/{{item.id}}/">{{item.id}} -- {{item.item_name}}</a> --><!--Hardcoded URL /display/{{item.id}}-->
          <!-- {{item.id}} -- {{item.item_name}} -->
-          <a href="{% url 'detail' item.id %}">{{item.id}} -- {{item.item_name}}</a>
+          <a href="{% url display:'detail' item.id %}">{{item.id}} -- {{item.item_name}}</a><!--Detail is the name of the path in urls.py-->
         </li>
     </ul>
        
