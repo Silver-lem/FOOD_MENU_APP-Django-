@@ -11,3 +11,6 @@ class Item(models.Model):
     item_name = models.CharField(max_length=200)
     item_desc = models.CharField(max_length=200)
     item_price = models.IntegerField()
+    #To add images -- add CharField which stores the URL of the image
+    item_image = models.CharField(max_length=500,default="https://theme-assets.getbento.com/sensei/193414f.sensei/assets/images/catering-item-placeholder-704x520.png")
+    
