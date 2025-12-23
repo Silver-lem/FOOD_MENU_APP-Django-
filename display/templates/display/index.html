@@ -1,40 +1,29 @@
-{% load static %}
+{% extends 'display/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
-    <link rel="stylesheet" href="{% static 'display/style.css'%}"/>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">FoodApp</a>
-
-        <div class="navbar-nav ms-auto">
-            <a href="#" class="nav-item nav-link">Add Item</a>
-            <a href="#" class="nav-item nav-link">Delete Item</a>
-            <a href="#" class="nav-item nav-link">View Item</a>
-        </div>
-
-    </nav>
-    <!-- .navbar-nav defaults to flex-direction: column -->
-    <!-- navbar-expand-lg → horizontal layout on large screens
-    ms-auto → pushes links to the right -->
-
+    {% block body %}
+        {% for item in item_list%}
+        <ul>
+            <li> 
+            <!-- <a href="/display/{{item.id}}/">{{item.id}} -- {{item.item_name}}</a> --><!--Hardcoded URL /display/{{item.id}}-->
+            <!-- {{item.id}} -- {{item.item_name}} -->
+            <a href="{% url 'display:detail' item.id %}">{{item.id}} -- {{item.item_name}}</a><!--Detail is the name of the path in urls.py-->
+            </li>
+        </ul>
+        
+        {% endfor %}
+    {% endblock %}
 
 
-    {% for item in item_list%}
-    <ul>
-        <li> 
-        <!-- <a href="/display/{{item.id}}/">{{item.id}} -- {{item.item_name}}</a> --><!--Hardcoded URL /display/{{item.id}}-->
-         <!-- {{item.id}} -- {{item.item_name}} -->
-          <a href="{% url 'display:detail' item.id %}">{{item.id}} -- {{item.item_name}}</a><!--Detail is the name of the path in urls.py-->
-        </li>
-    </ul>
-       
-    {% endfor %}
+    
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
