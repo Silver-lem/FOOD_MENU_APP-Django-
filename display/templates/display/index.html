@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
+    <link rel="stylesheet" href="{% static 'display/style.css'%}"/>
 </head>
 <body>
     {% for item in item_list%}
@@ -11,7 +13,7 @@
         <li> 
         <!-- <a href="/display/{{item.id}}/">{{item.id}} -- {{item.item_name}}</a> --><!--Hardcoded URL /display/{{item.id}}-->
          <!-- {{item.id}} -- {{item.item_name}} -->
-          <a href="{% url display:'detail' item.id %}">{{item.id}} -- {{item.item_name}}</a><!--Detail is the name of the path in urls.py-->
+          <a href="{% url 'display:detail' item.id %}">{{item.id}} -- {{item.item_name}}</a><!--Detail is the name of the path in urls.py-->
         </li>
     </ul>
        
