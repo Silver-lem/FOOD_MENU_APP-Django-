@@ -1,9 +1,12 @@
-
+{% extends 'display/base.html' %}
+{% block body %}
     <form method="POST">
         {% csrf_token %} <!--to prevent cross site scripting using forms ( for security reasons )-->
         {{ form }} <!--context that will be passed from view-->
         <button type="submit">Save</button>
     </form>
+
+{% endblock %}
 
 
 
