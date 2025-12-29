@@ -23,6 +23,12 @@
     <!-- .navbar-nav defaults to flex-direction: column -->
     <!-- navbar-expand-lg → horizontal layout on large screens
     ms-auto → pushes links to the right -->
+
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
     
     {% block body %}
     {% endblock %}
