@@ -15,3 +15,6 @@ def register(request):
             form = RegisterForm()
 
     return render(request,'user/register.html',{'form' : form})
+
+def profilepage(request):
+     return render(request,'user/profile.html')
